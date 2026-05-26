@@ -14,7 +14,9 @@
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --radius: 12px;
   --radius-sm: 8px;
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Outfit', 'Nunito Sans', sans-serif;
+  --font: var(--font-body);
 }
 
 /* ===== Reset & Base ===== */
@@ -22,11 +24,37 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: var(--font);
+  font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text);
   background: var(--white);
+}
+
+h1, h2, h3, h4,
+.section-title,
+.hero-headline,
+.product-highlight,
+.logo-text,
+.badge-pill,
+.campaign-pill,
+.campaign-cta,
+.btn,
+.testimonial-whatsapp-heading,
+.countdown-num,
+.info-card h3,
+.feature-card h3,
+.testimonial-card h4,
+.myth-card h4,
+.footer-col h4,
+.option-price,
+.engage-title,
+.video-title,
+.order-title,
+.insights-empathy-headline,
+.insights-myth-title {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
 }
 
 /* ===== Campaign banner ===== */
@@ -806,7 +834,7 @@ body {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  font-family: var(--font);
+  font-family: var(--font-body);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: #f9fafb;
