@@ -46,6 +46,11 @@
       const el = document.getElementById(id);
       if (el) el.textContent = values[i];
     });
+
+    const banner = document.getElementById('bannerCountdown');
+    if (banner) {
+      banner.textContent = `Ends in ${values[0]}d ${values[1]}h ${values[2]}m ${values[3]}s`;
+    }
   }
 
   updateCountdown();
@@ -157,4 +162,89 @@
       }
     });
   });
+
+  // ----- WhatsApp screenshots: tap to enlarge -----
+  var lightbox = document.getElementById('whatsappLightbox');
+  var lightboxImg = document.getElementById('whatsappLightboxImg');
+  var lightboxClose = document.getElementById('whatsappLightboxClose');
+  if (lightbox && lightboxImg) {
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      if (typeof lightbox.showModal === 'function') {
+        lightbox.showModal();
+      }
+    }
+    document.querySelectorAll('.testimonial-whatsapp-zoom').forEach(function (img) {
+      img.setAttribute('tabindex', '0');
+      img.addEventListener('click', function () {
+        openLightbox(this.src, this.alt);
+      });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(this.src, this.alt);
+        }
+      });
+    });
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', function () {
+        lightbox.close();
+      });
+    }
+  }
+
+  // ----- Interactive symptom check -----
+  var symptomSummary = document.getElementById('symptomSummary');
+  var symptomReset = document.getElementById('symptomReset');
+  var symptomChips = document.querySelectorAll('.symptom-chip');
+
+  function updateSymptomSummary() {
+    if (!symptomSummary) return;
+    var selected = document.querySelectorAll('.symptom-chip.is-selected');
+    var n = selected.length;
+    if (n === 0) {
+      symptomSummary.innerHTML =
+        '<p class="symptom-summary-intro">Tap the boxes above — your picks will show here.</p>';
+      return;
+    }
+    var labels = Array.prototype.map.call(selected, function (btn) {
+      return btn.textContent.trim();
+    });
+    var listHtml =
+      '<p class="symptom-picked-intro">You picked <span class="symptom-summary-count">' +
+      n +
+      '</span> ' +
+      (n === 1 ? 'thing' : 'things') +
+      '. Please run it by a doctor. Many people also use <strong>DIABEFIGHT</strong> as part of their daily care.</p>' +
+      '<ul class="symptom-picked-list">' +
+      labels
+        .map(function (l) {
+          return '<li>' + l + '</li>';
+        })
+        .join('') +
+      '</ul>';
+    symptomSummary.innerHTML = listHtml;
+  }
+
+  if (symptomChips.length) {
+    symptomChips.forEach(function (chip) {
+      chip.setAttribute('type', 'button');
+      chip.setAttribute('aria-pressed', 'false');
+      chip.addEventListener('click', function () {
+        var on = this.classList.toggle('is-selected');
+        this.setAttribute('aria-pressed', on ? 'true' : 'false');
+        updateSymptomSummary();
+      });
+    });
+  }
+  if (symptomReset) {
+    symptomReset.addEventListener('click', function () {
+      document.querySelectorAll('.symptom-chip.is-selected').forEach(function (chip) {
+        chip.classList.remove('is-selected');
+        chip.setAttribute('aria-pressed', 'false');
+      });
+      updateSymptomSummary();
+    });
+  }
 })();

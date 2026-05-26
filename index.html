@@ -8,15 +8,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2209519463137468');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2209519463137468&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
+  <!-- Campaign banner (high intent + urgency) -->
+  <div class="campaign-banner" role="region" aria-label="Limited time offer">
+    <div class="campaign-banner-inner">
+      <div class="campaign-left">
+        <span class="campaign-pill">LIMITED-TIME OFFER</span>
+        <span class="campaign-text">Pay on delivery • Nationwide delivery • No upfront payment</span>
+      </div>
+      <div class="campaign-right">
+        <span class="campaign-countdown" id="bannerCountdown">Offer ends soon</span>
+        <a class="campaign-cta" href="#order">Order DIABEFIGHT</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <a href="#" class="logo">
-        <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2c-4 4-7 8-7 12 0 3.3 2.7 6 6 6s6-2.7 6-6c0-4-3-8-7-12z" fill="currentColor"/>
-        </svg>
+        <img class="logo-icon" src="images/logo-leaf.png" alt="" width="28" height="28" decoding="async">
         <span class="logo-text">DIABEFIGHT</span>
       </a>
       <a href="#order" class="btn btn-order">Order Now</a>
@@ -36,6 +65,11 @@
             <span class="accent">Formula Helping Nigerians</span><br>
             <span class="dark">Manage Diabetes the Safer</span> <span class="accent">Way</span>
           </h1>
+          <p class="hero-support">
+            <span class="hero-support-strong">Support your body's blood sugar balance</span> with a simple capsule routine.
+            <span class="hero-support-highlight">Pay on delivery</span> —
+            <span class="hero-support-highlight">No upfront payment</span>.
+          </p>
         </div>
         <div class="hero-visual">
           <img src="images/capsule-bg.png" alt="DIABEFIGHT herbal capsules bottle" width="360" height="480" decoding="async" fetchpriority="high">
@@ -50,14 +84,76 @@
       </div>
     </section>
 
+    <!-- Engage: emotional hook -->
+    <section class="section engage-hook section-alt" aria-labelledby="engage-hook-title">
+      <div class="container engage-hook-inner">
+        <p class="engage-hook-kicker">Real talk</p>
+        <h2 id="engage-hook-title" class="engage-hook-title">You didn’t ask for high blood sugar — but you <em>can</em> still move forward.</h2>
+        <p class="engage-hook-lead">If sugar worry has drained your strength, your joy, or your confidence, you’re not weak and you’re not the only one. So many Nigerians want what you want: calmer numbers, fewer scary highs, and a life where food doesn’t feel like a crime.</p>
+        <div class="engage-hook-cta">
+          <a href="#symptom-check" class="btn btn-engage-secondary">See if this sounds like you</a>
+          <a href="#order" class="btn btn-hero btn-engage-primary">I’m ready to order (pay on delivery)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video section -->
+    <section class="section section-alt" id="video">
+      <div class="container">
+        <h2 class="section-title">Watch how <span class="accent">DIABEFIGHT</span> works (60 seconds)</h2>
+        <p class="section-intro">Video helps you understand what to expect and how to use the product. (Add your video link anytime.)</p>
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="video-placeholder-inner">
+              <div class="video-icon" aria-hidden="true">▶</div>
+              <div>
+                <div class="video-title">Product explanation video</div>
+                <div class="video-sub">Replace this placeholder with your YouTube/Drive video embed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cta-center">
+          <a href="#order" class="btn btn-hero">✓ YES! I WANT TO ORDER DIABEFIGHT (PAY ON DELIVERY)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engage: interactive symptom check -->
+    <section class="section engage-symptoms" id="symptom-check" aria-labelledby="symptom-check-title">
+      <div class="container">
+        <h2 id="symptom-check-title" class="section-title">Quick check — any of this sound like you?</h2>
+        <p class="section-intro">Tap what fits you. No sign-up. It’s just to help you notice what your body might be saying. (This isn’t a diagnosis — please talk to a doctor too.)</p>
+        <div class="symptom-grid" role="group" aria-label="Signs you may know">
+          <button type="button" class="symptom-chip" data-symptom="thirst">Always thirsty</button>
+          <button type="button" class="symptom-chip" data-symptom="urination">Many trips to the toilet at night</button>
+          <button type="button" class="symptom-chip" data-symptom="vision">Blurry or tired eyes</button>
+          <button type="button" class="symptom-chip" data-symptom="feet">Tingling or numb feet</button>
+          <button type="button" class="symptom-chip" data-symptom="energy">Very tired even after you rest</button>
+          <button type="button" class="symptom-chip" data-symptom="meals">Sugar goes up and down after food</button>
+          <button type="button" class="symptom-chip" data-symptom="healing">Cuts or sores heal slowly</button>
+          <button type="button" class="symptom-chip" data-symptom="hunger">Hungry again too soon after eating</button>
+        </div>
+        <div class="symptom-summary" id="symptomSummary" aria-live="polite">
+          <p class="symptom-summary-intro">Tap the boxes above — your picks will show here.</p>
+        </div>
+        <div class="symptom-actions">
+          <button type="button" class="btn-symptom-reset" id="symptomReset">Start over</button>
+        </div>
+        <div class="cta-center">
+          <a href="#order" class="btn btn-hero">✓ IF THIS IS YOU, SEE HOW DIABEFIGHT CAN HELP</a>
+        </div>
+      </div>
+    </section>
+
     <!-- What Makes It Different -->
     <section class="section section-alt">
       <div class="container">
         <h2 class="section-title">What Makes It Different from Everything You've Tried?</h2>
-        <p class="section-intro">Most people with diabetes are tired of hearing the same thing:</p>
+        <p class="section-intro section-intro-strong">Most people with diabetes are tired of hearing the same thing:</p>
         <blockquote class="quote-block">
-          <p>"Keep taking your medications, there's no cure..."</p>
-          <p>"This one is natural — it will work (but it doesn't)..."</p>
+          <p><span class="quote-mark">“</span>Keep taking your medications, there's no cure...<span class="quote-mark">”</span></p>
+          <p><span class="quote-mark">“</span>This one is natural — it will work (but it doesn't)...<span class="quote-mark">”</span></p>
         </blockquote>
       </div>
     </section>
@@ -91,11 +187,35 @@
       </div>
     </section>
 
+    <!-- Engage: who it's for + truth strip -->
+    <section class="section section-alt engage-audience" aria-labelledby="audience-title">
+      <div class="container">
+        <h2 id="audience-title" class="section-title">Is <span class="accent">DIABEFIGHT</span> for you?</h2>
+        <p class="section-intro">If two or more of these sound like your story, keep reading — we wrote this for you.</p>
+        <ul class="audience-list">
+          <li>You’ve dropped soda and sweets, but your numbers still won’t behave.</li>
+          <li>You’re tired of things that promise magic and give you nothing.</li>
+          <li>You care about your kidneys, your nerves, your eyes — not just one lab slip.</li>
+          <li>You like natural herbs <em>and</em> you still listen to your doctor.</li>
+          <li>You’re 40 or older and your body doesn’t bounce back like before.</li>
+        </ul>
+      </div>
+      <div class="engage-truth-band" role="region" aria-label="A word on taking it step by step">
+        <div class="container engage-truth-inner">
+          <p class="engage-truth-line"><strong>Small steps beat big panic.</strong> Too many of us only wake up when the numbers jump. Quiet, day-by-day habits — plus the right help — are how sugar gets gentler over time.</p>
+          <p class="engage-truth-hope">You’re not too late. You’re <em>here</em>.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Testimonials -->
     <section class="section section-alt">
       <div class="container">
         <h2 class="section-title">What Our Customers Are Saying</h2>
         <p class="section-sub">Real results from real people across Nigeria</p>
+        <figure class="testimonial-banner-wrap">
+          <img src="images/testimonial-banner-nigeria.png" alt="DIABEFIGHT Global Outreach Nigeria Chapter testimonial: customer with product, quote in Nigerian Pidgin, and before and after foot photos with note that individual results may vary" width="1024" height="571" loading="lazy" decoding="async">
+        </figure>
         <div class="testimonial-grid">
           <article class="testimonial-card">
             <div class="testimonial-avatar">
@@ -137,18 +257,19 @@
 
         <div class="testimonial-whatsapp-row">
           <h3 class="testimonial-whatsapp-heading">Messages from customers</h3>
+          <p class="testimonial-whatsapp-hint">Tap any screenshot to enlarge and read the messages clearly.</p>
           <div class="testimonial-whatsapp-grid">
             <figure class="testimonial-whatsapp-card">
-              <img src="images/testimonial-whatsapp-1.png" alt="WhatsApp chat: customer says sugar level reduced since using DIABEFIGHT; third week and can eat rice and garri in moderation" width="360" height="420" loading="lazy" decoding="async">
+              <img src="images/testimonial-whatsapp-1.png" alt="WhatsApp chat: customer says blood sugar more stable on DIABEFIGHT; feels lighter and stronger; doctor asked what they are using" width="1024" height="529" loading="lazy" decoding="async" class="testimonial-whatsapp-zoom">
             </figure>
             <figure class="testimonial-whatsapp-card">
-              <img src="images/testimonial-whatsapp-2.png" alt="WhatsApp chat: customer reports more stable sugar level, feels lighter and stronger" width="360" height="420" loading="lazy" decoding="async">
+              <img src="images/testimonial-whatsapp-2.png" alt="WhatsApp chat: Mrs Blessing Onyemejor says sugar is not rising like before; more energy, less leg swelling, recommended DIABEFIGHT to her sister" width="1024" height="678" loading="lazy" decoding="async" class="testimonial-whatsapp-zoom">
             </figure>
             <figure class="testimonial-whatsapp-card">
-              <img src="images/testimonial-whatsapp-3.png" alt="WhatsApp chat: Mrs Blessing reports improved sugar, more energy, and less leg swelling" width="360" height="420" loading="lazy" decoding="async">
+              <img src="images/testimonial-whatsapp-3.png" alt="WhatsApp chat: customer with Emma—stable sugar, feels lighter and stronger; says it works and readings improved after doubting at first" width="1024" height="674" loading="lazy" decoding="async" class="testimonial-whatsapp-zoom">
             </figure>
             <figure class="testimonial-whatsapp-card">
-              <img src="images/testimonial-whatsapp-4.png" alt="WhatsApp chat: extended conversation on stable readings and improved diet tolerance with DIABEFIGHT" width="360" height="780" loading="lazy" decoding="async">
+              <img src="images/testimonial-whatsapp-4.png" alt="WhatsApp chat: longer follow-up on monitoring DIABEFIGHT, improved readings, and tolerating a small portion of fufu; individual experience" width="1024" height="964" loading="lazy" decoding="async" class="testimonial-whatsapp-zoom">
             </figure>
           </div>
         </div>
@@ -166,6 +287,103 @@
           <div class="countdown-box"><span class="countdown-num" id="hours">23</span><span class="countdown-label">Hours</span></div>
           <div class="countdown-box"><span class="countdown-num" id="minutes">52</span><span class="countdown-label">Minutes</span></div>
           <div class="countdown-box"><span class="countdown-num" id="seconds">33</span><span class="countdown-label">Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engage: empathy + myth busting -->
+    <section class="section engage-insights" aria-labelledby="insights-empathy-title">
+      <div class="container">
+        <h2 id="insights-empathy-title" class="insights-empathy-headline">We know you’ve tried.</h2>
+        <div class="insights-empathy">
+          <p>You’ve cut sugar in your tea. You’ve skipped the next bottle of Coke. You’ve walked when your legs felt heavy. Maybe you’ve prayed over it too.</p>
+          <p class="insights-empathy-turn"><strong>So if the meter still looks bad, it’s not because you failed.</strong> Most times your body just needs more help than “try harder” — the kind of everyday support DIABEFIGHT gives, together with what your doctor says.</p>
+        </div>
+        <h3 class="insights-myth-title">Three things people get wrong about sugar</h3>
+        <p class="insights-myth-sub">Plain talk, no big grammar.</p>
+        <div class="myth-grid">
+          <article class="myth-card">
+            <span class="myth-label">Thing #1</span>
+            <h4>It’s not only about what you put in your mouth</h4>
+            <p>How your body handles sugar, stress, and sleep counts too — not only what you ate last week.</p>
+          </article>
+          <article class="myth-card">
+            <span class="myth-label">Thing #2</span>
+            <h4>You can feel okay and still need a check-up</h4>
+            <p>That’s why testing matters — more so if it runs in your family or your risk is higher.</p>
+          </article>
+          <article class="myth-card">
+            <span class="myth-label">Thing #3</span>
+            <h4>Herbs work best when you don’t play with your drugs</h4>
+            <p>Use DIABEFIGHT with good food, light movement you can keep up, and your nurse or doctor in the loop — especially if you’re on tablets or injections.</p>
+          </article>
+        </div>
+        <div class="cta-center">
+          <a href="#order" class="btn btn-hero">✓ ADD DIABEFIGHT TO YOUR ROUTINE — PAY ON DELIVERY</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educational warning signs (informative) -->
+    <section class="section section-alt" id="warning-signs">
+      <div class="container">
+        <h2 class="section-title">Warning Signs You May Be At Risk</h2>
+        <p class="section-intro">Diabetes can develop quietly. If you notice several of these signs, consider checking your blood sugar and speaking to a health professional.</p>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Common signs</h3>
+            <ul class="checklist">
+              <li>Frequent urination (especially at night)</li>
+              <li>Excessive thirst or dry mouth</li>
+              <li>Unusual fatigue or low energy</li>
+              <li>Blurred vision</li>
+              <li>Slow healing of cuts or wounds</li>
+              <li>Tingling/numbness in hands or feet</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>What can happen over time</h3>
+            <ul class="checklist">
+              <li>Reduced circulation and nerve health</li>
+              <li>Higher risk of infections</li>
+              <li>Difficulty maintaining stable blood sugar after meals</li>
+              <li>Overall reduced quality of life</li>
+            </ul>
+            <p class="info-note"><strong>Note:</strong> This page is informational only and not medical advice.</p>
+          </div>
+        </div>
+
+        <div class="cta-center">
+          <a href="#order" class="btn btn-hero">✓ I WANT TO START MY DIABEFIGHT ORDER NOW</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's inside the pack -->
+    <section class="section" id="pack">
+      <div class="container">
+        <h2 class="section-title">What’s Inside Each Pack of <span class="accent">DIABEFIGHT</span></h2>
+        <div class="pack-layout">
+          <div class="pack-copy">
+            <div class="pack-points">
+              <div class="pack-point"><span class="dot">✓</span> <strong>1 bottle = 60 capsules</strong></div>
+              <div class="pack-point"><span class="dot">✓</span> Dosage: 2 capsules morning &amp; evening</div>
+              <div class="pack-point"><span class="dot">✓</span> Pay on delivery (no upfront payment)</div>
+              <div class="pack-point"><span class="dot">✓</span> Nationwide delivery</div>
+            </div>
+            <div class="trust-strip">
+              <div class="trust-item"><span aria-hidden="true">🛡️</span> Quality assured</div>
+              <div class="trust-item"><span aria-hidden="true">📦</span> Pay on delivery</div>
+              <div class="trust-item"><span aria-hidden="true">☎️</span> Support: 07037110597</div>
+            </div>
+            <div class="cta-left">
+              <a href="#order" class="btn btn-hero">✓ YES! SHOW ME THE PRICE &amp; ORDER</a>
+            </div>
+          </div>
+          <div class="pack-visual">
+            <img src="images/capsule-bg.png" alt="DIABEFIGHT bottle (60 capsules)" width="420" height="520" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
     </section>
@@ -381,6 +599,13 @@
       <p class="disclaimer">Disclaimer: These statements have not been evaluated by NAFDAC. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
     </div>
   </footer>
+
+  <dialog class="whatsapp-lightbox" id="whatsappLightbox" aria-label="Enlarged WhatsApp screenshot">
+    <button type="button" class="whatsapp-lightbox-close" id="whatsappLightboxClose" aria-label="Close">&times;</button>
+    <div class="whatsapp-lightbox-inner">
+      <img id="whatsappLightboxImg" src="" alt="">
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
