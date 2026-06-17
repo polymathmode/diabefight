@@ -49,7 +49,6 @@ h1, h2, h3, h4,
 .footer-col h4,
 .option-price,
 .engage-title,
-.video-title,
 .order-title,
 .insights-empathy-headline,
 .insights-myth-title {
@@ -340,45 +339,6 @@ h1, h2, h3, h4,
   margin-top: 1.5rem;
 }
 
-/* ===== Video placeholder ===== */
-.video-card {
-  margin-top: 1.25rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-}
-.video-placeholder {
-  background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(15,23,42,0.06));
-  padding: 1.25rem;
-}
-.video-placeholder-inner {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.video-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--green);
-  color: var(--white);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  box-shadow: var(--shadow-md);
-}
-.video-title {
-  font-weight: 800;
-  color: var(--text);
-}
-.video-sub {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
 /* ===== Informational section ===== */
 .info-grid {
   display: grid;
@@ -556,6 +516,7 @@ h1, h2, h3, h4,
 
 /* ===== Testimonials ===== */
 .testimonial-banner-wrap {
+  position: relative;
   margin: 0 0 1.75rem;
   border-radius: var(--radius);
   overflow: hidden;
@@ -567,6 +528,33 @@ h1, h2, h3, h4,
   width: 100%;
   height: auto;
   display: block;
+}
+/* Clickable overlay positioned over the "ORDER NOW" graphic painted into the banner */
+.testimonial-banner-order {
+  position: absolute;
+  left: 71.5%;
+  top: 87.5%;
+  width: 18.5%;
+  height: 9.5%;
+  border-radius: 999px;
+  z-index: 2;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.testimonial-banner-order:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 2px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 .testimonial-grid {
   display: grid;
@@ -674,6 +662,12 @@ h1, h2, h3, h4,
 }
 .testimonial-whatsapp-zoom {
   cursor: zoom-in;
+}
+
+.test-results-gallery {
+  margin: 0 auto 2.5rem;
+  max-width: 1100px;
+  text-align: left;
 }
 
 /* Full-screen zoom for WhatsApp screenshots */
