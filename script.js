@@ -122,14 +122,52 @@
       function showSuccess() {
         if (done) return;
         done = true;
-        if (successEl) successEl.style.display = 'block';
-        if (submitBtn) submitBtn.textContent = '✓ Order submitted';
+//         function showSuccess() {
+//   if (done) return;
+//   done = true;
+
+//   // Fire Meta Pixel Lead event now that the order is confirmed
+//   if (typeof fbq === 'function') {
+//     fbq('track', 'Lead', {
+//       content_name: quantityLabelEl ? quantityLabelEl.value : 'DIABEFIGHT Order',
+//       value: orderPriceEl ? parseFloat(orderPriceEl.value) || 0 : 0,
+//       currency: 'NGN'
+//     });
+//   }
+
+//   if (successEl) successEl.style.display = 'block';
+//   if (submitBtn) submitBtn.textContent = '✓ Order submitted';
+
+//   // Keep selected option; just clear text fields to avoid accidental double submits
+//   form.querySelectorAll('input[type="text"], input[type="tel"]').forEach(function (inp) {
+//     if (inp.type !== 'hidden') inp.value = '';
+//   });
+// }
+  // Fire Meta Pixel Lead event now that the order is confirmed
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: quantityLabelEl ? quantityLabelEl.value : 'DIABEFIGHT Order',
+      value: orderPriceEl ? parseFloat(orderPriceEl.value) || 0 : 0,
+      currency: 'NGN'
+    });
+  }
+
+  if (successEl) successEl.style.display = 'block';
+  if (submitBtn) submitBtn.textContent = '✓ Order submitted';
+
+  // Keep selected option; just clear text fields to avoid accidental double submits
+  form.querySelectorAll('input[type="text"], input[type="tel"]').forEach(function (inp) {
+    if (inp.type !== 'hidden') inp.value = '';
+  });
+}
+        // if (successEl) successEl.style.display = 'block';
+        // if (submitBtn) submitBtn.textContent = '✓ Order submitted';
 
         // Keep selected option; just clear text fields to avoid accidental double submits
-        form.querySelectorAll('input[type="text"], input[type="tel"]').forEach(function (inp) {
-          if (inp.type !== 'hidden') inp.value = '';
-        });
-      }
+      //   form.querySelectorAll('input[type="text"], input[type="tel"]').forEach(function (inp) {
+      //     if (inp.type !== 'hidden') inp.value = '';
+      //   });
+      // }
 
       // Fallback: show success even if we can't inspect the response.
       var timeoutId = setTimeout(function () {
