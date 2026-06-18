@@ -100,8 +100,30 @@
     });
     syncHiddenFields();
 
+    // form.addEventListener('submit', function (e) {
+    //   e.preventDefault();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+    
+      // Hard guard: block ANY repeat submission (button click, Enter key, etc.)
+      // This protects across multiple 'submit' events, not just clicks on the disabled button.
+      if (form.dataset.submitting === 'true') {
+        return;
+      }
+      form.dataset.submitting = 'true';
+    
+      // if (successEl) successEl.style.display = 'none';
+      // if (errorEl) errorEl.style.display = 'none';
+    
+      // Basic honeypot protection
+      if (honeyEl && honeyEl.value && honeyEl.value.trim() !== '') {
+        form.dataset.submitting = 'false'; // allow a real attempt later if this was a false trigger
+        return;
+      }
+    
+      if (submitBtn) submitBtn.disabled = true;
+    
+      // ...rest of your existing code continues unchanged from here (syncHiddenFields(), iframe, showSuccess(), etc.)
 
       if (successEl) successEl.style.display = 'none';
       if (errorEl) errorEl.style.display = 'none';
@@ -111,7 +133,7 @@
         return;
       }
 
-      if (submitBtn) submitBtn.disabled = true;
+      // if (submitBtn) submitBtn.disabled = true;
 
       // Sync the hidden pricing/capsule fields from the selected radio
       syncHiddenFields();
