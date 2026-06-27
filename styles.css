@@ -942,12 +942,46 @@ h1, h2, h3, h4,
 /* ===== Form submit feedback (Formspree) ===== */
 .form-success {
   margin-top: 1rem;
-  padding: 0.9rem 1rem;
+  padding: 1.25rem 1.25rem;
   background: #ecfdf5;
   border: 1px solid rgba(34, 197, 94, 0.25);
   border-radius: var(--radius-sm);
   color: #166534;
   font-weight: 600;
+}
+.form-success-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+.form-success-text {
+  display: block;
+  font-weight: 600;
+}
+.btn-order-again {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-order-again:hover { background: var(--green-dark); }
+
+/* Confirmation state: hide the input fields so success is unmistakable.
+   The "Place another order" button restores the form for a fresh order. */
+.order-form--submitted > label,
+.order-form--submitted > input:not([type="hidden"]),
+.order-form--submitted .quantity-options,
+.order-form--submitted .submit-block,
+.order-form--submitted .form-error {
+  display: none !important;
 }
 .form-error {
   margin-top: 1rem;
