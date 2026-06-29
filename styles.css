@@ -959,23 +959,8 @@ h1, h2, h3, h4,
   display: block;
   font-weight: 600;
 }
-.btn-order-again {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 1.5rem;
-  background: var(--green);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 0.95rem;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.btn-order-again:hover { background: var(--green-dark); }
-
-/* Confirmation state: hide the input fields so success is unmistakable.
-   The "Place another order" button restores the form for a fresh order. */
+/* Confirmation state: hide the input fields during the brief moment before
+   redirecting to the thank-you page, so the user can't re-submit. */
 .order-form--submitted > label,
 .order-form--submitted > input:not([type="hidden"]),
 .order-form--submitted .quantity-options,

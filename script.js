@@ -74,8 +74,6 @@
     const successEl = document.getElementById('orderSuccess');
     const errorEl = document.getElementById('orderError');
     const submitBtn = form.querySelector('button[type="submit"]');
-    const ORIGINAL_SUBMIT_TEXT = submitBtn ? submitBtn.textContent : '';
-    const orderAgainBtn = document.getElementById('orderAgainBtn');
 
     // Replace with your Google Apps Script Web App endpoint:
     // Example: https://script.google.com/macros/s/XXXXXXX/exec
@@ -176,20 +174,12 @@
     });
   }
 
-  if (successEl) successEl.style.display = 'block';
-  if (submitBtn) submitBtn.textContent = '✓ Order submitted';
-
-  // Switch the card into a clean confirmation state (hides the fields/submit button)
-  // so the user clearly sees success and isn't tempted to re-submit the same order.
-  form.classList.add('order-form--submitted');
-
-  // Keep selected option; just clear text fields to avoid accidental double submits
-  form.querySelectorAll('input[type="text"], input[type="tel"]').forEach(function (inp) {
-    if (inp.type !== 'hidden') inp.value = '';
-  });
+  // Give brief feedback on the button while we hand off to the thank-you page.
+  if (submitBtn) submitBtn.textContent = 'Processing…';
 
   // Redirect to the dedicated thank-you page. Small delay gives the Meta Pixel
-  // Lead beacon time to send before the page navigates away.
+  // Lead beacon time to send before the page navigates away. No inline popup is
+  // shown — the thank-you page is the single confirmation.
   setTimeout(function () {
     window.location.href = 'thank-you.html';
   }, 600);
@@ -220,32 +210,6 @@
       form.action = FORM_ENDPOINT;
       form.submit();
     });
-
-    // ----- "Place another order": restore the form for a fresh, deliberate order -----
-    if (orderAgainBtn) {
-      orderAgainBtn.addEventListener('click', function () {
-        form.reset();
-
-        // Re-apply the selected highlight on the (now default) quantity option
-        document.querySelectorAll('.quantity-option').forEach(function (opt) {
-          opt.classList.toggle('selected', !!opt.querySelector('input:checked'));
-        });
-        syncHiddenFields();
-
-        // Lift the duplicate-submit guard and restore the button for a new order
-        form.dataset.submitting = 'false';
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = ORIGINAL_SUBMIT_TEXT;
-        }
-
-        if (successEl) successEl.style.display = 'none';
-        if (errorEl) errorEl.style.display = 'none';
-        form.classList.remove('order-form--submitted');
-
-        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
   }
 
   // ----- Smooth scroll for anchor links -----
