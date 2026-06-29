@@ -187,6 +187,12 @@
   form.querySelectorAll('input[type="text"], input[type="tel"]').forEach(function (inp) {
     if (inp.type !== 'hidden') inp.value = '';
   });
+
+  // Redirect to the dedicated thank-you page. Small delay gives the Meta Pixel
+  // Lead beacon time to send before the page navigates away.
+  setTimeout(function () {
+    window.location.href = 'thank-you.html';
+  }, 600);
 }
         // if (successEl) successEl.style.display = 'block';
         // if (submitBtn) submitBtn.textContent = '✓ Order submitted';
